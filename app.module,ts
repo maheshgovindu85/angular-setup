@@ -1,0 +1,43 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { NotFoundComponent } from './modules/general/not-found/not-found.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UniversalStorage } from './shared/storage/universal.storage';
+import { AuthService } from './shared/services/auth.service';
+import { CookieService } from 'ngx-cookie-service';
+import { ImageUploaderService } from './shared/services/client-upload.service';
+import { UnAuthGuard } from './shared/guards/un-auth.guard';
+import { AdminAuthGuard } from './shared/guards/admin-auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { SharedModule } from '../app/shared/shared.module';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CarouselModule,
+    SharedModule.forRoot()
+  ],
+  providers: [
+    UniversalStorage,
+    AuthService,
+    CookieService,
+    AuthGuard,
+    AdminAuthGuard,
+    UnAuthGuard,
+    ImageUploaderService,
+  ],
+})
+export class AppModule { }
