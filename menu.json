@@ -1,0 +1,37 @@
+[
+   {
+      "id": "dashboard",
+      "name": "Dashboard",
+      "icon": "../../../assets/Images/dashboard-icon.svg",
+      "link": "/human-resource/dashboard",
+      "menu": [],
+      "role": ["HR", "CANDIDATE"]
+   },
+   {
+      "id": "candidate-report",
+      "name": "Candidate Report",
+      "icon": "../../../assets/Images/report-icon.svg",
+      "link": "/human-resource/candidate-report",
+      "menu": [],
+      "role": ["CANDIDATE"]
+   },
+   {
+      "id": "human-resource",
+      "name": "HR",
+      "icon": "../../../assets/Images/report-icon.svg",
+      "link": "/candidate/personal-info",
+      "menu": [],
+      "role": ["HR"]
+   },
+   {
+      "id": "Masters",
+      "name": "Masters",
+      "icon": "../../../assets/Images/report-icon.svg",
+      "link": "",
+      "menu": [],
+      "role": ["HR", "CANDIDATE"]
+   }
+ 
+   
+   
+]

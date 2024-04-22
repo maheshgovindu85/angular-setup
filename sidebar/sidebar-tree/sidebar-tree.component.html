@@ -1,0 +1,15 @@
+<div class="sidebar-inside">
+     <ul *ngIf="data" class="sidebar-main-style-2">
+          <li class="position-relative" *ngFor="let subMenu of data; let j=index;" id="{{subMenu.id}}">
+               <a [ngClass]="subMenu.visible === true ? 'sub-hide-drop-icon': 'sub-show-drop-icon' "
+                    class="sidebar-heading" *ngIf="subMenu.menu?.length" (click)="toggleChildren(subMenu)">
+                    <img alt="" class="side-icon 1" src="{{subMenu.icon}}">{{subMenu.name}}
+               </a>
+
+               <a class="sidebar-heading-2" *ngIf="!subMenu.menu?.length" (click)="toggleChildren(subMenu)">
+                    <img alt="" class="side-icon 2" src="{{subMenu.icon}}">{{subMenu.name}}
+               </a>
+               <app-sidebar-tree *ngIf="subMenu.visible" [data]="subMenu.menu"></app-sidebar-tree>
+          </li>
+     </ul>
+</div>
