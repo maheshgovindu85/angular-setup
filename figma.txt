@@ -148,6 +148,188 @@ https://www.figma.com/file/RGv5uouvgRUAJtfftexVZB/Smartbob---SaaS?type=design&no
 </div>
 
 
+<div class="container home-stay-content">
+    <div class="row">
+        <div class="col-lg-6">
+            <h5>More to come</h5>
+            <h2>Stay Tuned</h2>
+            <p>We are looking forward to release our next unique features.</p>
+            <div class="d-flex mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
+                    <rect y="0.920166" width="26" height="26" rx="13" fill="#E8F2EE" />
+                    <path
+                        d="M11.5001 16.299L18.3941 9.4043L19.4553 10.4648L11.5001 18.42L6.72705 13.647L7.78755 12.5865L11.5001 16.299Z"
+                        fill="#4E36F5" />
+                </svg>
+                <p class="card-title ms-2">Unique features</p>
+            </div>
+            <div class="d-flex mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
+                    <rect y="0.920166" width="26" height="26" rx="13" fill="#E8F2EE" />
+                    <path
+                        d="M11.5001 16.299L18.3941 9.4043L19.4553 10.4648L11.5001 18.42L6.72705 13.647L7.78755 12.5865L11.5001 16.299Z"
+                        fill="#4E36F5" />
+                </svg>
+                <p class="card-title ms-2">Advanced AI Tools</p>
+            </div>
+            <div class="d-flex mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="27" viewBox="0 0 26 27" fill="none">
+                    <rect y="0.920166" width="26" height="26" rx="13" fill="#E8F2EE" />
+                    <path
+                        d="M11.5001 16.299L18.3941 9.4043L19.4553 10.4648L11.5001 18.42L6.72705 13.647L7.78755 12.5865L11.5001 16.299Z"
+                        fill="#4E36F5" />
+                </svg>
+                <p class="card-title ms-2">Save money and time</p>
+            </div>
+
+            <a class="newsletter">Sign up to our Newsletter &nbsp; <svg xmlns="http://www.w3.org/2000/svg" width="18"
+                    height="16" viewBox="0 0 18 16" fill="none">
+                    <path
+                        d="M13.2286 6.92787L7.79209 1.60732L9.2252 0.204779L17.1083 7.91977L9.2252 15.6348L7.79209 14.2322L13.2286 8.91167H0.89209L0.89209 6.92787H13.2286Z"
+                        fill="#3727B0" />
+                </svg></a>
+        </div>
+        <div class="col-lg-6">
+            @for (item of staycontentCards; track $index) {
+            <div class="square-cards mb-3">
+                <div class="color-box"></div>
+                <div class="color-box-content">
+                    <label for="">{{item.title}}</label>
+                    <p>{{item.content}}</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" -->
+<!-- ngAfterViewInit(): void {
+    const accordionElements = document.querySelectorAll('.accordion');
+    accordionElements.forEach((accordionElement) => {
+      new bootstrap.Accordion(accordionElement);
+    });
+  } -->
+<div class="container home-package-content">
+    <div class="row justify-content-center">
+        <div class="col-lg-4">
+            <h1>Standard</h1>
+            <p>99 EUR Monthly </p>
+            <p class="child">EUR Do-It-Yourself (SaaS)
+                Standard Support</p>
+        </div>
+        <div class="col-lg-4 right-side-content">
+            <h1>Premium</h1>
+            <p>349 EUR Monthly
+                Personal Account Manager
+                Support within 2 hours (working hours)</p>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+        <button type="button" class="btn primary-btn me-5">Open Account</button>
+        <button type="button" class="btn primary-btn">Demo Book</button>
+    </div>
+</div>
+<div class="container home-testimonial-content">
+    <div class="row">
+        <div class="col-lg-7">
+            <h5>Testimonials</h5>
+            <h2>People all over the world on waiting list.</h2>
+        </div>
+        <div class="col-lg-5 d-flex align-items-end">
+
+            <div class="testimo-loactions">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
+                    <rect y="0.840332" width="40" height="40" rx="20" fill="#E8F2EE" />
+                    <path
+                        d="M20 26.5788L13.5348 30.1978L14.9785 22.9305L9.53809 17.8998L16.8962 17.0272L20 10.2988L23.1038 17.0272L30.4619 17.8998L25.0215 22.9305L26.4653 30.1978L20 26.5788Z"
+                        fill="#4E36F5" />
+                </svg>
+                <p class=" ms-2">75 locations all around the world</p>
+            </div>
+        </div>
+    </div>
+    <div class="row testimonial-cards">
+        @for (item of testimonialCards; track $index) {
+        <div class="col-lg-4">
+            <div class="card">
+                <h4>{{item.title}}</h4>
+                <p>{{item.content}}</p>
+                <div>
+                    <h6>{{item.name}}</h6>
+                    <span>{{item.loacion}}</span>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+<div class="container home-accordian-content">
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Need help?</h2>
+            <div class="contact-cards d-flex    mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="51" viewBox="0 0 50 51" fill="none">
+                    <rect y="0.340332" width="50" height="50" rx="25" fill="#E8F2EE" />
+                    <path
+                        d="M35.5 30.497V34.6223C35.5001 34.9177 35.3882 35.2021 35.1869 35.4182C34.9855 35.6343 34.7096 35.766 34.415 35.7867C33.9052 35.8217 33.4887 35.8403 33.1667 35.8403C22.8568 35.8403 14.5 27.4835 14.5 17.1737C14.5 16.8517 14.5175 16.4352 14.5537 15.9253C14.5743 15.6307 14.706 15.3548 14.9221 15.1535C15.1382 14.9521 15.4226 14.8402 15.718 14.8403H19.8433C19.988 14.8402 20.1276 14.8938 20.235 14.9909C20.3424 15.0879 20.4099 15.2213 20.4243 15.3653C20.4512 15.6337 20.4757 15.8472 20.499 16.0093C20.7309 17.6274 21.206 19.2011 21.9083 20.6772C22.0192 20.9105 21.9468 21.1893 21.7368 21.3387L19.2192 23.1377C20.7585 26.7245 23.617 29.583 27.2038 31.1223L29.0005 28.6093C29.0739 28.5067 29.1811 28.433 29.3032 28.4013C29.4254 28.3695 29.5549 28.3816 29.669 28.4355C31.1449 29.1365 32.7182 29.6105 34.3357 29.8413C34.4978 29.8647 34.7113 29.8903 34.9773 29.916C35.1211 29.9307 35.2543 29.9983 35.3511 30.1057C35.4479 30.213 35.5013 30.3525 35.5012 30.497H35.5Z"
+                        fill="#4E36F5" />
+                </svg>
+                <div class="contact">
+                    <p>+45 299 000 18</p>
+                    <span>Support Hotline</span>
+                </div>
+            </div>
+            <div class="contact-cards d-flex">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="51" viewBox="0 0 50 51" fill="none">
+                    <rect y="0.340332" width="50" height="50" rx="25" fill="#E8F2EE" />
+                    <path
+                        d="M29.7835 14.8402C29.6271 15.6101 29.6271 16.4036 29.7835 17.1735H16.263L25.0713 24.9458L30.9618 19.6725C31.4588 20.2873 32.0795 20.7995 32.7853 21.1717L25.0842 28.0678L15.6668 19.7588V33.5068H34.3335V21.7235C35.1034 21.8799 35.8969 21.8799 36.6668 21.7235V34.6735C36.6668 34.9829 36.5439 35.2797 36.3251 35.4985C36.1063 35.7173 35.8096 35.8402 35.5002 35.8402H14.5002C14.1907 35.8402 13.894 35.7173 13.6752 35.4985C13.4564 35.2797 13.3335 34.9829 13.3335 34.6735V16.0068C13.3335 15.6974 13.4564 15.4007 13.6752 15.1819C13.894 14.9631 14.1907 14.8402 14.5002 14.8402H29.7835ZM35.5002 19.5068C35.0405 19.5068 34.5854 19.4163 34.1608 19.2404C33.7361 19.0645 33.3503 18.8067 33.0253 18.4817C32.7003 18.1567 32.4425 17.7709 32.2666 17.3462C32.0907 16.9216 32.0002 16.4665 32.0002 16.0068C32.0002 15.5472 32.0907 15.0921 32.2666 14.6674C32.4425 14.2428 32.7003 13.857 33.0253 13.532C33.3503 13.207 33.7361 12.9491 34.1608 12.7733C34.5854 12.5974 35.0405 12.5068 35.5002 12.5068C36.4284 12.5068 37.3187 12.8756 37.975 13.532C38.6314 14.1883 39.0002 15.0786 39.0002 16.0068C39.0002 16.9351 38.6314 17.8253 37.975 18.4817C37.3187 19.1381 36.4284 19.5068 35.5002 19.5068Z"
+                        fill="#4E36F5" />
+                </svg>
+                <div class="contact">
+                    <p>+45 299 000 18</p>
+                    <span>Support Hotline</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="accordion" id="accordionExample">
+                @for (item of accordianItems; track item; let i = $index) {
+                <div class="accordion-item">
+                  <h2 class="accordion-header" [id]="'heading' + i">
+                    <button
+                      class="accordion-button"
+                      type="button"
+                      [class.collapsed]="!item.isOpen"
+                      (click)="toggleItem(item)"
+                      [attr.aria-expanded]="item.isOpen"
+                      [attr.aria-controls]="'collapse' + i"
+                    >
+                      {{ item.title }}
+                    </button>
+                  </h2>
+                  <div
+                    [id]="'collapse' + i"
+                    class="accordion-collapse collapse"
+                    [class.show]="item.isOpen"
+                    [attr.aria-labelledby]="'heading' + i"
+                    data-bs-parent="#accordionExample"
+                  >
+                    <div class="accordion-body">
+                      {{ item.content }}
+                    </div>
+                  </div>
+                </div>
+            }
+              </div>
+        </div>
+    </div>
+
+</div>
+
+
 
 .home-page-post-content{
     background: var(--primary-light-color);
@@ -176,3 +358,241 @@ https://www.figma.com/file/RGv5uouvgRUAJtfftexVZB/Smartbob---SaaS?type=design&no
         
     }
 }
+
+
+.home-stay-content {
+    h5 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 64px;
+        line-height: 70px;
+        letter-spacing: -0.03em;
+    }
+
+    p {
+        // font-family: 'Inner';
+    }
+
+    .newsletter {
+        color: #3727B0;
+        font-size: 18px;
+        margin: 1rem 0;
+    }
+
+    .square-cards {
+        display: flex;
+        background: #F8F8F8;
+        padding: 16px;
+        border-radius: 10px;
+        gap: 16px;
+
+        .color-box {
+            width: 50px;
+            height: 50px;
+            background: #30D5C8;
+            border-radius: 10px;
+        }
+
+        .color-box-content {
+            label {
+                font-weight: 700;
+            }
+
+            p {
+                // font-family: 'Inner';
+                margin: 0;
+            }
+        }
+    }
+}
+
+.home-package-content {
+    h1 {
+        font-size: 80px;
+    }
+
+    p {
+        // font-family: inner;
+        max-width: 200px;
+        width: 100%;
+        margin: 0 auto;
+        line-height: 26px;
+        text-align: center;
+    }
+
+    .child {
+        color: #1A191E80;
+
+    }
+
+    .right-side-content {
+        p {
+            // font-family: inner;
+            max-width: 300px;
+            width: 100%;
+            margin: 0 auto;
+            line-height: 26px;
+            text-align: center;
+        }
+    }
+}
+
+
+.home-testimonial-content {
+    h2 {
+
+        font-size: 64px;
+        font-weight: 500;
+        line-height: 70.4px;
+        letter-spacing: -0.03em;
+
+
+    }
+
+    .testimo-loactions {
+        display: flex;
+        align-items: center;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .testimonial-cards {
+        .card {
+            padding: 32px;
+            gap: 24px;
+            border-radius: 10px;
+            opacity: 0px;
+
+            h4 {
+                font-size: 24px;
+            }
+
+            span {
+                font-size: 14px;
+                color: #1A191E80;
+
+            }
+        }
+
+
+    }
+}
+
+.home-accordian-content {
+    h2 {
+        font-size: 64px;
+    }
+
+    .contact-cards {
+        display: flex;
+        gap: 10px;
+
+        .contact {
+            p {
+                margin: 0;
+            }
+
+            ;
+
+            span {
+                color: #1A191E80;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+
+
+
+  staycontentCards = [
+    {
+      title: 'AI Shift Management',
+      content: 'Let AI handle your shiftplan'
+    },
+    {
+      title: 'Digital Gift Cards',
+      content: 'Send digital gift cards to your customers',
+    },
+    {
+      title: 'AI Table Booking',
+      content: 'Let AI Manage your table booking',
+    },
+    {
+      title: 'AI Assistant',
+      content: 'Let AI handle booking requests to maximize profit',
+    },
+    {
+      title: 'Take-Away Orders',
+      content: 'Advanced and user friendly interface',
+    },
+
+  ]
+
+  testimonialCards = [
+    {
+      title: 'AI Shift Management',
+      content: 'We have seen the demo of Smartbob’s unique Dashboard. We can’t wait to use it. It will be a game changer for our chain of barber shops.',
+      name: 'Ali',
+      loacion: 'Carlsens Barbershop',
+    },
+    {
+      title: 'Looking forward',
+      content: 'Thank you for a great demo. This platform will improve our management and help us get more reviews. We are so excited for the release.',
+      name: 'Ayman',
+      loacion: 'Niro Sushi',
+    },
+    {
+      title: 'Unique and impressive',
+      content: 'Team Lusa is looking forward to join Smartbob.io. We can’t wait for the release. This will make it so much easier for us to handle our location data on multiple platforms.',
+      name: 'Stephanie',
+      loacion: 'Lusa',
+    },
+    {
+      title: 'Lives up to the name',
+      content: 'After seeing the demo of Smartbob I am sure it will make it much easier for our business.',
+      name: 'Simon',
+      loacion: 'Paradis Is',
+    },
+    {
+      title: 'Very cool',
+      content: 'I love the platform already... Looking forward to using it. It will make it more efficient for us.',
+      name: 'Morten',
+      loacion: 'Retro',
+    },
+    {
+      title: 'Looks great',
+      content: 'We are very thrilled to finally see a location management platform this good. We can’t wait to use this amazing tool!',
+      name: 'Sara',
+      loacion: 'Restaurant Tropical',
+    },
+
+  ]
+
+  accordianItems = [
+    {
+      title: 'Item 1',
+      content: 'This is the content for Item 1.',
+      isOpen: false
+    },
+    {
+      title: 'Item 2',
+      content: 'This is the content for Item 2.',
+      isOpen: false
+    },
+  ];
+
+  toggleItem(item: { isOpen: boolean }) {
+    this.accordianItems.forEach(i => {
+      if (i !== item) {
+        i.isOpen = false;
+      }
+    });
+
+    item.isOpen = !item.isOpen;
+  }
+
