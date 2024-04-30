@@ -1,1 +1,178 @@
 https://www.figma.com/file/RGv5uouvgRUAJtfftexVZB/Smartbob---SaaS?type=design&node-id=0%3A1&mode=design&t=sQR3bU7PtjaO7jKH-1
+
+
+
+<div class="container">
+    <section class="row home-page-banner-content">
+        <div class="col-lg-6 col-md-6">
+            <h1>Upgrade your Location Data Management</h1>
+            <p>
+                With our intuitive tools designed to give you control and insight. Start
+                shaping your digital presence today.
+            </p>
+
+            <div class="row bannerChecks">
+                @for (item of bannerChecks; track $index) {
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="d-flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                            <rect width="26" height="26" rx="13" fill="#E8F2EE" />
+                            <path
+                                d="M11.5001 15.379L18.3941 8.48425L19.4553 9.54475L11.5001 17.5L6.72705 12.727L7.78755 11.6665L11.5001 15.379Z"
+                                fill="#4E36F5" />
+                        </svg>
+                        <h5 class="card-title ms-2">{{ item.title }}</h5>
+                    </div>
+                </div>
+                }
+            </div>
+
+            <div class="book-demo mt-5">
+                <button type="button" class="primary-btn">Book a Demo</button>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 banner-right">
+            <img src="../../../assets/banner-right.svg" alt="" />
+        </div>
+    </section>
+
+    <section class="row home-page-dashboard-content">
+        <div class="col-lg-6 col-md-6">
+            <h1>One Dashboard.
+                All-in-one.</h1>
+
+            <div class="row">
+                @for (item of oneDashboardAll; track $index) {
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <img [src]="item.icon" alt="">
+                        <h5>{{item.title}}</h5>
+                        <p>{{item.description}}</p>
+
+                    </div>
+                </div>
+                }
+            </div>
+
+        </div>
+        <div class="col-lg-6 col-md-6 right-location-img">
+            <img src="../../../assets/cards-location.svg" alt="">
+        </div>
+    </section>
+
+
+
+</div>
+
+<section class="home-page-post-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Post content on all platforms from one Dashboard</h2>
+                <p>Upcoming tool (to be released Q3 2024)</p>
+
+                <div class="d-flex mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <rect width="26" height="26" rx="13" fill="#3727B0" />
+                        <path
+                            d="M11.5001 15.3789L18.3941 8.48413L19.4553 9.54463L11.5001 17.4999L6.72705 12.7269L7.78755 11.6664L11.5001 15.3789Z"
+                            fill="white" />
+                    </svg>
+                    <h5 class="card-title ms-2">Advanced yet simple to use editor</h5>
+                </div>
+                <div class="d-flex mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <rect width="26" height="26" rx="13" fill="#3727B0" />
+                        <path
+                            d="M11.5001 15.3789L18.3941 8.48413L19.4553 9.54463L11.5001 17.4999L6.72705 12.7269L7.78755 11.6664L11.5001 15.3789Z"
+                            fill="white" />
+                    </svg>
+                    <h5 class="card-title ms-2">Advanced yet simple to use editor</h5>
+                </div>
+                <div class="d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
+                        <rect width="26" height="26" rx="13" fill="#3727B0" />
+                        <path
+                            d="M11.5001 15.3789L18.3941 8.48413L19.4553 9.54463L11.5001 17.4999L6.72705 12.7269L7.78755 11.6664L11.5001 15.3789Z"
+                            fill="white" />
+                    </svg>
+                    <h5 class="card-title ms-2">Advanced yet simple to use editor</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<div class="container">
+    <section class=" home-page-multi-plat">
+        <div class="row">
+            <div class="col-lg-6">
+                <p>Smartbob makes it easier to manage Location Data</p>
+                <h2>Supports Multiple Platforms</h2>
+                <p>One dashboard.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="box-platform-img">
+                    <!-- <img src="" alt=""> -->
+                    
+                </div>
+                
+            </div>
+            <div class="col-lg-3">
+                <div class="box-platform-img">
+                    <!-- <img src="" alt=""> -->
+                    
+                </div>
+                
+            </div>
+            <div class="col-lg-3">
+                <div class="box-platform-img">
+                    <!-- <img src="" alt=""> -->
+                    
+                </div>
+                
+            </div>
+            <div class="col-lg-3">
+                <div class="box-platform-img">
+                    <!-- <img src="" alt=""> -->
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+    </section>
+</div>
+
+
+
+.home-page-post-content{
+    background: var(--primary-light-color);
+    padding: 128px 0;
+
+    h2{
+        font-size: 64px;
+        font-weight: 500;
+        line-height: 70.4px;
+        letter-spacing: 3px;
+    }
+    p{
+        font-size: 20px;
+        margin: 20px 0 30px  0;
+    }
+}
+.home-page-multi-plat{
+    padding: 160px 0;
+    h2{
+        font-size: 64px;
+    }
+    p{
+        font-size: 20px;
+    }
+    .box-platform-img{
+        
+    }
+}
