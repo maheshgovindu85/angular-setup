@@ -15,6 +15,77 @@ https://www.figma.com/file/RGv5uouvgRUAJtfftexVZB/Smartbob---SaaS?type=design&no
             </ng-container>
         </li>
 
+
+// pagination.component.ts
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-pagination',
+  templateUrl: './pagination.component.html',
+  styleUrls: ['./pagination.component.css']
+})
+export class PaginationComponent {
+  @Input() totalItems: number;
+  @Input() itemsPerPage: number = 10;
+  @Input() maxPagesToShow: number = 5;
+  @Output() pageChange = new EventEmitter<number>();
+
+  currentPage: number = 1;
+  totalPages: number;
+  pages: (number | string)[] = [];
+
+  ngOnInit() {
+    this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
+    this.generatePageNumbers();
+  }
+
+  generatePageNumbers() {
+    const pagesArray: (number | string)[] = [];
+    const maxPagesToShow = this.maxPagesToShow;
+    const totalPages = this.totalPages;
+
+    // Add the first page
+    pagesArray.push(1);
+
+    // Add ellipsis if there are more than maxPagesToShow pages
+    if (totalPages > maxPagesToShow) {
+      const startEllipsis = Math.min(Math.max(2, this.currentPage - Math.floor(maxPagesToShow / 2)), totalPages - maxPagesToShow + 2);
+      pagesArray.push('...');
+    }
+
+    // Add the middle pages
+    for (let i = Math.max(2, Math.min(this.currentPage - Math.floor(maxPagesToShow / 2), totalPages - maxPagesToShow + 1)); i < Math.min(totalPages, this.currentPage + Math.ceil(maxPagesToShow / 2)); i++) {
+      pagesArray.push(i);
+    }
+
+    // Add ellipsis if there are more than maxPagesToShow pages
+    if (totalPages > maxPagesToShow) {
+      const endEllipsis = Math.max(Math.min(totalPages - 1, this.currentPage + Math.floor(maxPagesToShow / 2)), maxPagesToShow);
+      if (endEllipsis < totalPages) {
+        pagesArray.push('...');
+      }
+    }
+
+    // Add the last page
+    if (totalPages > 1) {
+      pagesArray.push(totalPages);
+    }
+
+    this.pages = pagesArray;
+  }
+
+  setCurrent(page: number) {
+    this.currentPage = page;
+    this.generatePageNumbers();
+    this.pageChange.emit(page);
+  }
+
+  getCurrent() {
+    return this.currentPage;
+  }
+}
+
+
 <div class="container">
     <section class="row home-page-banner-content">
         <div class="col-lg-6 col-md-6">
