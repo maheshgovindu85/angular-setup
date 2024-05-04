@@ -1,5 +1,9 @@
 https://www.figma.com/file/RGv5uouvgRUAJtfftexVZB/Smartbob---SaaS?type=design&node-id=0%3A1&mode=design&t=sQR3bU7PtjaO7jKH-1
 
+
+"strictPropertyInitialization": false,
+
+
 <li [class.current]="p.getCurrent() === page.value" 
             [class.ellipsis]="page.label === '...'"
             *ngFor="let page of p.pages; trackBy: trackByIndex">
