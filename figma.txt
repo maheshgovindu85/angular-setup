@@ -3,6 +3,15 @@ https://www.figma.com/file/RGv5uouvgRUAJtfftexVZB/Smartbob---SaaS?type=design&no
 
 "strictPropertyInitialization": false,
 
+ <app-search-select-dropdown formControlName="department" 
+                        optionKey="id"
+                        optionValue="description" 
+                        [options]="_registerService.departmentList">
+                        </app-search-select-dropdown>
+
+ <app-pagination [currentPage]="config.currentPage" [itemsPerPage]="config.itemsPerPage"
+                    [totalItems]="total" (changePage)="changePage($event)"></app-pagination>
+
 
 <li [class.current]="p.getCurrent() === page.value" 
             [class.ellipsis]="page.label === '...'"
