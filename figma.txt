@@ -1,3 +1,25 @@
+<ul>
+  <ng-container *ngFor="let menuItem of nestedMenuItems">
+    <li>
+      {{ menuItem.description }}
+      <ul *ngIf="menuItem.children.length > 0">
+        <ng-container *ngFor="let child of menuItem.children">
+          <li>
+            {{ child.description }}
+            <ul *ngIf="child.children.length > 0">
+              <ng-container *ngFor="let subChild of child.children">
+                <li>{{ subChild.description }}</li>
+              </ng-container>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </li>
+  </ng-container>
+</ul>
+
+
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
