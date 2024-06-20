@@ -1,3 +1,18 @@
+export interface MenuItem {
+  menu_id: number;
+  parent_id: number;
+  role_id: number;
+  user_id: number;
+  code: string;
+  description: string;
+  menu_link: string | null;
+  visible: boolean;
+  children?: MenuItem[]; // Add children property for submenus
+}
+
+
+
+
 <ul>
   <ng-container *ngFor="let menuItem of nestedMenuItems">
     <li>
