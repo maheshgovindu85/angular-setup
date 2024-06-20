@@ -1,5 +1,94 @@
 https://www.figma.com/file/RGv5uouvgRUAJtfftexVZB/Smartbob---SaaS?type=design&node-id=0%3A1&mode=design&t=sQR3bU7PtjaO7jKH-1
 
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
+})
+export class MenuComponent implements OnInit {
+  menuItems: MenuItem[] = [
+    {
+      menu_id: 1,
+      parent_id: 0,
+      role_id: 4,
+      user_id: 144,
+      code: 'Home',
+      description: 'Home',
+      menu_link: 'http://localhost:4200/pmt-timesheet/Home',
+      visible: true
+    },
+    {
+      menu_id: 2,
+      parent_id: 0,
+      role_id: 4,
+      user_id: 144,
+      code: 'Timesheet',
+      description: 'Timesheet',
+      menu_link: 'http://localhost:4200/pmt-timesheet',
+      visible: true
+    },
+    {
+      menu_id: 15,
+      parent_id: 0,
+      role_id: 4,
+      user_id: 144,
+      code: 'adminactivity',
+      description: 'Admin Activity',
+      menu_link: null,
+      visible: true
+    },
+    {
+      menu_id: 20,
+      parent_id: 15,
+      role_id: 4,
+      user_id: 144,
+      code: 'Change_Password',
+      description: 'Change Password',
+      menu_link: null,
+      visible: false
+    },
+    {
+      menu_id: 22,
+      parent_id: 15,
+      role_id: 4,
+      user_id: 144,
+      code: 'Leave',
+      description: 'Leave',
+      menu_link: null,
+      visible: false
+    }
+  ];
+
+  nestedMenuItems: MenuItem[] = [];
+
+  ngOnInit() {
+    this.nestedMenuItems = this.buildMenuHierarchy(this.menuItems);
+  }
+
+  buildMenuHierarchy(menuItems: MenuItem[]): MenuItem[] {
+    const menuMap: { [key: number]: MenuItem } = {};
+
+    menuItems.forEach(menuItem => {
+      menuMap[menuItem.menu_id] = { ...menuItem, children: [] };
+    });
+
+    const nestedMenuItems: MenuItem[] = [];
+
+    menuItems.forEach(menuItem => {
+      if (menuItem.parent_id === 0) {
+        nestedMenuItems.push(menuMap[menuItem.menu_id]);
+      } else {
+        if (menuMap[menuItem.parent_id]) {
+          menuMap[menuItem.parent_id].children.push(menuMap[menuItem.menu_id]);
+        }
+      }
+    });
+
+    return nestedMenuItems;
+  }
+}
 
 [
     {
@@ -53,6 +142,25 @@ https://www.figma.com/file/RGv5uouvgRUAJtfftexVZB/Smartbob---SaaS?type=design&no
         "visible": false
     }
 ]
+<ul>
+  <ng-container *ngFor="let menuItem of nestedMenuItems">
+    <li>
+      {{ menuItem.description }}
+      <ul *ngIf="menuItem.children.length > 0">
+        <ng-container *ngFor="let child of menuItem.children">
+          <li>
+            {{ child.description }}
+            <ul *ngIf="child.children.length > 0">
+              <ng-container *ngFor="let subChild of child.children">
+                <li>{{ subChild.description }}</li>
+              </ng-container>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </li>
+  </ng-container>
+</ul>
 
 "strictPropertyInitialization": false,
 
