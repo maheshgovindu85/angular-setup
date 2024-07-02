@@ -1,0 +1,93 @@
+// custom-multi-select.component.ts
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+
+@Component({
+  selector: 'app-custom-multi-select',
+  templateUrl: './custom-multi-select.component.html',
+  styleUrls: ['./custom-multi-select.component.css']
+})
+export class CustomMultiSelectComponent {
+  options = new FormControl([]);
+  optionList: string[] = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
+
+  toggleSelection(option: string) {
+    const currentSelections = this.options.value as string[];
+    if (currentSelections.includes(option)) {
+      this.options.setValue(currentSelections.filter(item => item !== option));
+    } else {
+      this.options.setValue([...currentSelections, option]);
+    }
+  }
+
+  isSelected(option: string): boolean {
+    return (this.options.value as string[]).includes(option);
+  }
+}
+<!-- custom-multi-select.component.html -->
+<div class="multi-select-container">
+  <div class="multi-select-dropdown" (click)="dropdownOpen = !dropdownOpen">
+    <div class="multi-select-selected">
+      <span *ngFor="let option of options.value">{{ option }}</span>
+      <span *ngIf="!options.value.length">Select options</span>
+    </div>
+    <div class="multi-select-arrow">&#9660;</div>
+  </div>
+  <div class="multi-select-options" *ngIf="dropdownOpen">
+    <div class="multi-select-option" *ngFor="let option of optionList" (click)="toggleSelection(option)">
+      <input type="checkbox" [checked]="isSelected(option)"> {{ option }}
+    </div>
+  </div>
+</div>
+/* custom-multi-select.component.css */
+.multi-select-container {
+  position: relative;
+  width: 200px;
+}
+
+.multi-select-dropdown {
+  border: 1px solid #ccc;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.multi-select-selected {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.multi-select-selected span {
+  background: #e0e0e0;
+  border-radius: 2px;
+  margin: 2px;
+  padding: 2px 5px;
+}
+
+.multi-select-arrow {
+  float: right;
+}
+
+.multi-select-options {
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  position: absolute;
+  width: 100%;
+  z-index: 1000;
+  background: #fff;
+}
+
+.multi-select-option {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.multi-select-option:hover {
+  background: #f0f0f0;
+}
+
+  
+
+
+
