@@ -1,3 +1,15 @@
+toggleSelection(option: any): void {
+    const selectedIndex = this.selectedOption.findIndex(opt => opt[this.optionKey] === option[this.optionKey]);
+    if (selectedIndex > -1) {
+      this.selectedOption.splice(selectedIndex, 1);
+    } else {
+      this.selectedOption.push(option);
+    }
+    this.onChange(this.selectedOption.map(opt => opt[this.optionKey]));
+  }
+
+
+
 <div class="dropdown-container">
   <div class="selected-items" (click)="toggleDropdown()">
     <span *ngFor="let item of selectedItems">{{ item }}</span>
