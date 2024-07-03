@@ -1,3 +1,30 @@
+getprojectleaderId(list) {
+  const newProjectProfile: projectprofile_mapping = {
+    id: 0,
+    ProjectID: 0,
+    ProfileID: list.profileID,
+    DepartmentID: list.departmentID
+  };
+
+  const tsProjectProfileMapping = this.form.get('ts_projectprofile_mapping') as FormArray;
+
+  if (tsProjectProfileMapping.length === 0) {
+    tsProjectProfileMapping.push(this._fb.group(newProjectProfile));
+  } else {
+    // Check if the profile already exists to avoid duplicates
+    const existingProfile = tsProjectProfileMapping.controls.find(control => 
+      control.get('ProfileID').value === newProjectProfile.ProfileID &&
+      control.get('DepartmentID').value === newProjectProfile.DepartmentID
+    );
+
+    if (!existingProfile) {
+      tsProjectProfileMapping.push(this._fb.group(newProjectProfile));
+    }
+  }
+}
+
+
+
 toggleSelection(option: any): void {
     const selectedIndex = this.selectedOption.findIndex(opt => opt[this.optionKey] === option[this.optionKey]);
     if (selectedIndex > -1) {
