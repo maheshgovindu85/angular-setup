@@ -1,3 +1,37 @@
+
+updateMenuItemOnClick(clickedItem: any, parentItem: any) {
+  // Update the clicked item's properties
+  clickedItem.created_by = localStorage.getItem('EMPLOYEE_ID');
+  clickedItem.menu_id = clickedItem.id;
+  clickedItem.role_id = this.selectedRoleId;
+  clickedItem.user_id = this.selectedUserId;
+  clickedItem.is_checked = true;
+
+  // Find and update the item in the getMenuList array
+  this.updateItemInMenuList(this.getMenuList, clickedItem, parentItem);
+}
+
+updateItemInMenuList(menuList: any[], itemToUpdate: any, parentItem: any) {
+  for (let item of menuList) {
+    if (item.id === parentItem.id) {
+      // Found the parent item, now search in its menu array
+      if (item.menu) {
+        const index = item.menu.findIndex((subItem: any) => subItem.id === itemToUpdate.id);
+        if (index !== -1) {
+          // Update the item in the menu array
+          item.menu[index] = { ...item.menu[index], ...itemToUpdate };
+          break;
+        }
+      }
+    } else if (item.menu) {
+      // Recursively search in nested menu
+      this.updateItemInMenuList(item.menu, itemToUpdate, parentItem);
+    }
+  }
+}
+
+
+
 getprojectleaderId(list) {
   const newProjectProfile: projectprofile_mapping = {
     id: 0,
